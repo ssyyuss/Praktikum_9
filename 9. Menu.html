@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu jQuery</title>
+  <style>
+    .menu {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      background-color: #9E829C;
+      text-decoration: none;
+    }
+
+    .menu li {
+      display: inline-block;
+      padding: 10px;
+    }
+
+    .menu li:hover {
+      background-color: #F0EFF4;
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      background-color: #291528;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .submenu li {
+      display: block;
+      padding: 10px;
+    }
+
+    .submenu li:hover {
+      background-color: #F0EFF4;
+    }
+  </style>
+</head>
+<body>
+  <ul class="menu">
+    <li><a href="#">Beranda</a></li>
+    <li>
+      <a href="#">Produk</a>
+      <ul class="submenu">
+        <li><a href="#">Ayam Ori</a></li>
+        <li><a href="#">Ayam Crispy</a></li>
+        <li><a href="#">Ayam Spicy</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Tentang</a></li>
+    <li><a href="#">Kontak</a></li>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.menu > li').hover(
+        function() {
+          $(this).children('.submenu').stop(true, true).slideDown(200);
+        },
+        function() {
+          $(this).children('.submenu').stop(true, true).slideUp(200);
+        }
+      );
+    });
+  </script>
+</body>
+</html>
